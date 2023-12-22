@@ -1,0 +1,16 @@
+h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}   
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.bookcover {
+    height: 300px;
+    width: auto;
+}
+
+.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark{
+    margin: bottom 200px; ;
+}
