@@ -8,6 +8,9 @@ django = "*"
 psycopg2-binary = "*"
 django-crispy-forms = "==2.1"
 crispy-bootstrap5 = "*"
+django-allauth = "*"
+social-auth-app-django = "*"
+python-social-auth = {extras = ["django"], version = "*"}
 
 [dev-packages]
 
