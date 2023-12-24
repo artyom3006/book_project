@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # Third-party
     'crispy_forms',
     'crispy_bootstrap5',
@@ -166,7 +167,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False 
 
-#ACCOUNT_USERNAME_REQUIRED = True 
+ACCOUNT_USERNAME_REQUIRED = True 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_UNIQUE_EMAIL = True 
+
+DEFAULT_FROM_EMAIL = 'artyomshekhonin@gmail.com'
+
+# smtp settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.elasticemail.com'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = 'artyomshekhonin@gmail.com'
+EMAIL_HOST_PASSWORD = '294C5949B5D611D5D0860AA853ED822CD998'
+EMAIL_USE_TLS = True
