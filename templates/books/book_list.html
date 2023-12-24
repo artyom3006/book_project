@@ -3,9 +3,22 @@
 {% block title %}Books{% endblock title %}
 
 {% block content %}
-{% for book in object_list %}
-<div>
-    <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+<a href="{% url 'book_create' %}" class="create-book-btn mb-3">
+    <button type="button" class="btn btn-primary mb-3">Create Your Book</button>
+</a>
+
+<div class="row">
+    {% for book in object_list %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if book.cover %}
+            <img class="card-img-top" src="{{ book.cover.url }}" alt="{{ book.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"><a class="book-list-title" href="{{ book.get_absolute_url }}">{{ book.title }}</a></h5>
+            </div>
+        </div>
     </div>
     {% endfor %}
+</div>
 {% endblock content %}
