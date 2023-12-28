@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from .models import Book
 from django.shortcuts import redirect
 from django.views.generic.edit import FormView
+from django.db.models import Q
 
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
@@ -26,6 +27,17 @@ class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
         context['review_form'] = ReviewForm()
         return context
     
+class SearchResultsView(ListView):
+    model = Book
+    context_object_name = 'book_list'
+    template_name = 'books/search_results.html'
+    
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        return Book.objects.filter(
+            Q(title__icontains=query) | Q(author__icontains=query)
+        )
+
 class BookCreateView(CreateView):
     model = Book
     form_class = BookForm
@@ -44,3 +56,4 @@ class AddReviewView(LoginRequiredMixin, FormView):
         review.author = self.request.user
         review.save()
         return redirect('book_detail', pk=book_id)
+    

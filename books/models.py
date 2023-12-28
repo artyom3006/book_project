@@ -40,9 +40,10 @@ class Review(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], blank=True, default=0)
     
     def stars_display(self):
-        full_stars = '★' * self.rating
-        empty_stars = '☆' * (10 - self.rating)
-        return f'{full_stars}{empty_stars}'
+        full_stars = '⭐' * self.rating
+        empty_stars = '' * (10 - self.rating)
+        rate = self.rating
+        return f'{full_stars}{empty_stars}({rate}/10)'
     
     def __str__(self):
         return self.review

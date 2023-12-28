@@ -5,7 +5,13 @@
 
 {% block content %}
     <h1>Homepage</h1>
-    <img class="bookcover" src="{% static 'images/quotes1.jpg' %}">
+
+    <form class="form-inline mt-2 mt-md-0 my-4" action="{% url 'search_results' %}" method="get">
+        <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success mt-2 " type='submit'>Search</button>
+    </form>
+    
+    <!--<img class="bookcover" src="{% static 'images/quotes1.jpg' %}">-->
     {% if user.is_authenticated %}
         <p>Hi,{{ user.username }}!<p>
         <p><a href="{% url 'account_logout' %}">Log Out</a></p>

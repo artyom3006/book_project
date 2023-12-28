@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<h1>Search Results</h1>
+
+<div class="row">
+{% for book in book_list %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if book.cover %}
+            <img class="card-img-top" src="{{ book.cover.url }}" alt="{{ book.title }}"></a>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"><a class="book-list-title" href="{{ book.get_absolute_url }}">{{ book.title }}</a></h5>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{%endblock content %}
