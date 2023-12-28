@@ -12,6 +12,7 @@ django-allauth = "*"
 social-auth-app-django = "*"
 python-social-auth = {extras = ["django"], version = "*"}
 pillow = "*"
+stripe = "*"
 
 [dev-packages]
 

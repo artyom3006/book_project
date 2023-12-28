@@ -3,9 +3,11 @@
 {% block title %}Books{% endblock title %}
 
 {% block content %}
-<a href="{% url 'book_create' %}" class="create-book-btn mb-3">
-    <button type="button" class="btn btn-primary mb-3">Create Your Book</button>
-</a>
+{% if 'books.special_status' not in user.get_all_permissions %}
+    <a href="{% url 'orders' %}" class="btn btn-success mb-4" >Purchase All Books</a>
+{% endif %}
+
+<a href="{% url 'book_create' %}" class="btn btn-primary mb-4" >Upload Your Book</a>
 
 <div class="row">
     {% for book in object_list %}

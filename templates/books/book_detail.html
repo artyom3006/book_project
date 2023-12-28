@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}{{ book.title }}{% endblock title %}
 
@@ -11,10 +12,18 @@
     <p>Author: {{ book.author }}</p>
     <p>Price: {{ book.price }}$</p>
 <div>
+    
+<h3>Add a Review</h3>
+<form method="post" action="{% url 'add_review' book.id %}">
+    {% csrf_token %}
+    {{ review_form|crispy }}
+    <button type="submit" class="btn btn-primary mb-4 rounded-pill ">Submit Review</button>
+</form>
+
 <h3>Reviews</h3>
 <ul>
     {% for review in book.reviews.all %}
-    <li>{{ review.review }} ({{ review.author }})</li>
+    <li>{{ review.author }} <br>{{ review.stars_display }} <br>{{ review.review }}</li>
     {% endfor %}
 </ul>
 </div>

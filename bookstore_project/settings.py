@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',  
     'books.apps.BooksConfig',
+    'orders.apps.OrdersConfig',
     ]
 
 
@@ -183,3 +184,7 @@ EMAIL_PORT = 2525
 EMAIL_HOST_USER = 'artyomshekhonin@gmail.com'
 EMAIL_HOST_PASSWORD = '294C5949B5D611D5D0860AA853ED822CD998'
 EMAIL_USE_TLS = True
+
+# Stripe
+STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
+STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')

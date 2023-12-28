@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 import uuid
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 class Book(models.Model):
     id = models.UUIDField( # new
@@ -35,5 +37,12 @@ class Review(models.Model):
         get_user_model(), 
         on_delete = models.CASCADE,
     )
+    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], blank=True, default=0)
+    
+    def stars_display(self):
+        full_stars = '★' * self.rating
+        empty_stars = '☆' * (10 - self.rating)
+        return f'{full_stars}{empty_stars}'
+    
     def __str__(self):
         return self.review
