@@ -1,7 +1,7 @@
 h1 {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}   
+}
 
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,6 +12,22 @@ p {
     width: auto;
 }
 
-.create-book-btn {
-    margin-bottom: 100px; 
+
+.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark {
+    margin-bottom: 200px;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 4px;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 16px;
+  }

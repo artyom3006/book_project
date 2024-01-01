@@ -8,6 +8,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Book(models.Model):
     id = models.UUIDField( # new
         primary_key=True,
+        db_index=True,
         default=uuid.uuid4,
         editable=False)
     title = models.CharField(max_length=200)

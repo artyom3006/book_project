@@ -13,6 +13,8 @@ social-auth-app-django = "*"
 python-social-auth = {extras = ["django"], version = "*"}
 pillow = "*"
 stripe = "*"
+django-debug-toolbar = "*"
+django-compressor = "*"
 
 [dev-packages]
 
