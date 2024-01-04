@@ -21,10 +21,10 @@ from django.conf import settings
 
 urlpatterns = [
     # Django admin
-    path('admin/', admin.site.urls),
+    path('anything-but-admin/', admin.site.urls),
     
     # User management\
-   path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
     
     # Local apps
     path('', include('pages.urls')),
